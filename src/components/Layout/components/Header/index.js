@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCircleQuestion,faCircleXmark,faCloudUpload,faCoins,faEarthAsia,faEllipsisVertical,faGear,faKeyboard,faMagnifyingGlass,faSignOut,faSpinner,faUser,} from '@fortawesome/free-solid-svg-icons';
+import {faCircleQuestion,faCircleXmark,faCoins,faEarthAsia,faEllipsisVertical,faGear,faKeyboard,faMagnifyingGlass,faSignOut,faSpinner,faUser,} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
@@ -12,6 +12,8 @@ import images from '../../../../assets/images'
 import AccountItem from '../../../AccountItem'
 import Button from '../../../Button'
 import Menu from '../../Popper/Menu'
+import { UploadIcon } from '../../../Icons';
+import Image from '../../../Image';
 
 const cx = classNames.bind(styles)
 const MENU_ITEMS = [
@@ -124,9 +126,9 @@ export default function Header() {
         <div className={cx('actions')}>
           {currentUser ? (
            <>
-           <Tippy content="Upload videos" placement='bottom'>
+           <Tippy target='tomo' content="Upload videos" placement='bottom'>
                <button className={cx('action-btn')}>
-                 <FontAwesomeIcon icon={faCloudUpload }/>
+             <UploadIcon/>
                </button>
            </Tippy>
            </>
@@ -138,10 +140,10 @@ export default function Header() {
           )}
           <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/775f1f16c090cec86d9e1f82fc1cf26e~c5_100x100.jpeg?x-expires=1653476400&x-signature=ejUFZmn3l35AupfCs8qqJN3DAqc%3D"
-                                alt="Nguyen Van A"
+                                alt="erro images"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
